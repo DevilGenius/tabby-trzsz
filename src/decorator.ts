@@ -66,7 +66,7 @@ export class TrzszDecorator extends TerminalDecorator {
       terminal,
       isWindowsShell
     );
-    terminal.session.middleware.push(middleware);
+    terminal.session.middleware.unshift(middleware);
     (terminal as any).trzsz = middleware.trzsz;
   }
 }
