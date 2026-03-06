@@ -19,6 +19,7 @@ export class TrzszSessionMiddleware extends SessionMiddleware {
       sendToServer: (data) => super.feedFromTerminal(Buffer.from(data as any)),
       terminalColumns: terminal.size.columns,
       isWindowsShell: isWindowsShell,
+      maxDataChunkSize: 1 * 1024 * 1024,
       chooseSendFiles: async (directory) => {
         const properties = [
           "openFile",
@@ -72,3 +73,4 @@ export class TrzszSessionMiddleware extends SessionMiddleware {
     this.trzsz.processTerminalInput(data as any);
   }
 }
+
